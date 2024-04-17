@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <title></title>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link href="/styles.css" rel="stylesheet">
+          <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+     </head>
+     <body>
+          <div class="container">
+               <h1>Welcome</h1>
+               <h3>Please Choose to Continue</h3>
+               <div id="login-area" >
+                    <button hx-get="/login/hod" hx-boost="true">Department HOD</button>
+                    <button hx-get="/login/iqac" hx-boost="true">IQAC Team</button>
+               </div>
+          </div>
+     </body>
+</html>

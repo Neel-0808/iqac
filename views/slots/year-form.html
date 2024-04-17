@@ -1,0 +1,11 @@
+<form id="choose-year" hx-post="/api/get-checklist" hx-target="#table-area" hx-swap="outerHTML">
+     <label for="id" class="font-bold">Year:</label>
+     <select name="id" class="border text-sm rounded px-2 py-1">
+          <option value="" disabled selected>Choose a year</option>  
+          <% records.forEach(function(list){ %>
+          <option value="<%= list.id %>"> <%= list.year %> </option>  
+          <% }); %>
+     </select>
+     <input type="hidden" name="dept" value="<%= dept %>" />
+     <button class="text-sm active:scale-95 bg-blue-600 text-white hover:bg-blue-800 px-2 py-1 rounded" type="submit">Get Record</button>
+</form>

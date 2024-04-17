@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <title></title>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link href="/styles.css" rel="stylesheet">
+     <script src="https://unpkg.com/htmx.org@1.9.10"
+          integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+          crossorigin="anonymous"></script>
+     <script src="/script.js"></script>
+</head>
+
+<body class="m-0 p-0 box-border flex items-start justify-center w-full h-screen">
+     <div class="flex flex-col items-center min-h-1/2 max-w-1/2 w-[400px] border mt-32 md:mt-10">
+          <div class="w-full pt-10 pb-14 text-center text-white bg-blue-800 h-20 flex items-center justify-center">
+               <h1 class="text-3xl font-bold">Login Page</h1>
+          </div>
+          <div class="grid grid-cols-2 text-center bg-blue-800 text-white w-full select-none">
+               <label>
+                    <input hidden checked class="hidden peer" name="selection" id="team" type="radio" hx-get="/api/get-form/iqac"
+                                                                                      hx-target="#login-area" />
+                    <div class="cursor-pointer peer-checked:bg-white peer-checked:text-black w-full p-3"> Team Login </div>
+               </label>
+               <label>
+                    <input class="hidden peer" name="selection" id="hod" type="radio" hx-get="/api/get-form/hod"
+                                                                                      hx-target="#login-area" />
+                    <div class="cursor-pointer peer-checked:bg-white peer-checked:text-black w-full p-3"> HOD Login </div>
+               </label>
+          </div>
+          <div id="login-area" class="p-10 w-full">
+               <%- include('../slots/login-form.html', { role: { name: 'team', id: '3' } }) %>
+          </div>
+          <% if(message) { %>
+          <p class="text-green-400"><%= message %><p>
+          <% } %>
+     </div>
+
+</body>
+
+</html>

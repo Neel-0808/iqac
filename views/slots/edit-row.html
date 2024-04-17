@@ -1,0 +1,26 @@
+<tr class="p-3 text-center">
+     <td class="border p-3 w-[10%]">
+          <%= item.id %>
+     </td>
+     <td class="border p-3 text-left w-[40%]">
+          <%= item.text %>
+     </td>
+     <td class="border-2 border-blue-400 p-3">
+          <% if(item.status=='0' ) { %>
+          <input type="checkbox" id="status" name="status" />
+          <% } else { %>
+          <input type="checkbox" id="status" name="status" checked />
+          <% } %>
+     </td>
+     <td class="border-2 border-blue-400 bg-white w-[20%]">
+          <input type="text" id="comment" class="w-full p-3 border-none outline-none cursor-text" value="<%= item.comment %>" />
+     </td>
+     <td colspan="2" class="border p-3 w-[10%] bg-red-700 text-white cursor-pointer" hx-post="/api/save"
+          hx-target="closest tr" 
+          hx-trigger="click" 
+          hx-swap="outerHTML"
+          hx-vals="js:{ id: <%=item.id %>, status: document.getElementById('status').checked, comment: document.getElementById('comment').value, pos: <%=item.pos%> }"
+     >
+          Save
+     </td>
+</tr>

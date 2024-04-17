@@ -1,0 +1,16 @@
+<table id="table-area" class="table-fixed min-w-fit flex-grow border border-collapse">
+     <thead>
+          <tr>
+               <th class="p-5 w-[10%] border">Id</th>
+               <th class="p-5 w-[40%] border">Text</th>
+               <th class="p-5 w-[10%] border">Status</th>
+               <th class="p-5 w-[30%] border">Comment</th>
+               <th class="p-5 w-[10%] border">Updated</th>
+          </tr>
+     </thead>
+     <tbody>
+          <% checklist.forEach(function(item, i){ %>
+          <%- include('row.html', { item, pos: i+1 }); %>
+          <% }); %>
+     </tbody>
+</table>
